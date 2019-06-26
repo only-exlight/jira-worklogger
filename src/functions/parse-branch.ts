@@ -1,4 +1,5 @@
 import { pExec } from './exec';
+import { BUG_PTRN } from '../const/patterns';
 
 export async function parseBranch(): Promise<string[]> {
     const out = await pExec('git branch');
@@ -8,11 +9,26 @@ export async function parseBranch(): Promise<string[]> {
         br = br.trimLeft();
         return br;
     });
-    branches = branches.filter((b, i) => {
+    branches = branches.filter(b => {
         if (!b) {
             return false;
         }
         return true;
     });
     return branches;
+}
+
+export async function currentBranch(): Promise<string> {
+    const out = await pExec('git branch');
+    let branches = out.split('\n');
+    const regExp = new RegExp(/\*/);
+    let curBranch = branches.find(b => regExp.test(b));
+    curBranch = curBranch.replace('*', '');
+    curBranch = curBranch.trimLeft();
+    return curBranch;
+}
+
+export function extractTaskName(branchName: string): string {
+    const parts = branchName.split('/');
+    return parts[1].toUpperCase();
 }

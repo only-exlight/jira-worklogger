@@ -1,7 +1,6 @@
-let nodeExternals = require('webpack-node-externals');
-
 module.exports = {
     target: 'node',
+    entry: './src/hoooooks/checkout.ts',
     module: {
         rules: [{
             test: /\.tsx?$/,
@@ -11,7 +10,7 @@ module.exports = {
     },
     output: {
         path: `${__dirname}/build`,
-        filename: 'pre-commit.js'
+        filename: 'pre-checkout.js'
     },
     resolve: {
         extensions: ['.tsx', '.ts', '.js']

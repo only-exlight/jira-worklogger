@@ -8,8 +8,7 @@
     "start": "ts-node src/index.ts",
     "commit": "ts-node src/hoooooks/commit.ts",
     "compile": "tsc",
-    "webpack-commit": "webpack --config pre-commit.config.js",
-    "webpack-checkout": "webpack --config pre-checkout.config.js"
+    "webpack": "webpack --config webpack.config.js"
   },
   "keywords": [
     "jira",

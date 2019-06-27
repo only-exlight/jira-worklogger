@@ -1,1 +1,1 @@
-node ./pre-checkout.js
+node .git/hooks/post-checkout.js

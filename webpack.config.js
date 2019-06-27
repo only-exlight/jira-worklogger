@@ -1,7 +1,10 @@
-console.warn(__dirname);
 module.exports = {
     target: 'node',
-    entry: './src/hoooooks/commit',
+    entry: {
+        'pre-commit': './src/hoooooks/pre-commit.ts',
+        'commit-msg': './src/hoooooks/commit-msg.ts',
+        'post-checkout': './src/hoooooks/post-checkout.ts'
+    },
     module: {
         rules: [{
             test: /\.tsx?$/,
@@ -11,7 +14,7 @@ module.exports = {
     },
     output: {
         path: `${__dirname}/build`,
-        filename: 'pre-commit.js'
+        filename: '[name].js'
     },
     resolve: {
         extensions: ['.tsx', '.ts', '.js']

@@ -1,6 +1,6 @@
 {
   "name": "jira-auto-log",
-  "version": "1.0.0",
+  "version": "0.0.13",
   "description": "Auto log time by tasks",
   "main": "index.js",
   "scripts": {

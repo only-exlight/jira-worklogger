@@ -1,5 +1,6 @@
 module.exports = {
     target: 'node',
+    mode: 'production',
     entry: {
         'pre-commit': './src/hoooooks/pre-commit.ts',
         'commit-msg': './src/hoooooks/commit-msg.ts',

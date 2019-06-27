@@ -1,15 +1,16 @@
-import { createServer } from 'net';
-import { Socket } from 'dgram';
+import { Socket } from 'net';
 import { PORT, HOST, APP_NAME, VERSION } from './const/app-consts';
 import { currentBranch } from './functions/parse-branch';
 import { E_PROTOKOL_EVENT, IProtokol } from './const/protocol';
 import { writeSeparator } from './functions/exec';
 import { TaskManager } from './classes/task-manager';
 import { JiraManager } from './classes/jira-manager';
+import { TcpServer } from './classes/tcp-server';
 
 export async function main() {
-    let taskManager = new TaskManager();
-    let jiraManager = new JiraManager();
+    const taskManager = new TaskManager();
+    const jiraManager = new JiraManager();
+    const tcpSrv = new TcpServer();
     writeSeparator();
     process.stdout.write('Good day for work! \n');
     process.stdout.write(`Welcome to ${APP_NAME} ${VERSION}\n`);
@@ -20,13 +21,9 @@ export async function main() {
     }
     await jiraManager.login();
     writeSeparator();
-    const TCP_SRV = createServer()
-        .listen(PORT, HOST, () => {
-            process.stdout.write('Listen GIT hooks...\n');
-            writeSeparator();
-        });
+    tcpSrv.startServer(PORT, HOST);
 
-    TCP_SRV.on('connection', (socket: Socket) =>
+    tcpSrv.server.on('connection', (socket: Socket) =>
         socket.on('data', async (data: Buffer) => {
             const jsonData = data.toString();
             const msg: IProtokol = JSON.parse(jsonData);

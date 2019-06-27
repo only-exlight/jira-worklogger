@@ -1,6 +1,6 @@
 import { Task } from './task';
 import * as moment from 'moment';
-import { IJiraWorkLog, IReport } from '../interfaces/jira';
+import { IReport } from '../interfaces/jira';
 
 export class TaskManager {
     currentTask: Task;

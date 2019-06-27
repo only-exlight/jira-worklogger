@@ -18,5 +18,8 @@ export async function stdinQuestion(question: string): Promise<string> {
             resolve(answ)
         });
     });
+}
 
+export function writeSeparator(): void {
+    process.stdout.write(`------------------------------------------\n`);
 }

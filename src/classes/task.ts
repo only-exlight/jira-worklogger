@@ -1,37 +1,43 @@
+import * as moment from 'moment';
+
 export interface ITimeInterval {
-    start: Date;
-    end?: Date;
+    start: moment.Moment;
+    end?: moment.Moment;
     endComment?: string;
 }
 
 export class Task {
-    startTime: Date;
+    startTime: moment.Moment;
     intervales: ITimeInterval[] = [];
 
     constructor(public name: string) {
-        this.startTime = new Date();
-        this.intervales.push({ start: new Date() })
+        this.startTime = moment();
     }
 
-    startWork() {
-
+    public startWork() {
+        this.intervales.push({ start: moment() })
     }
 
-    get totalTime(): number {
+    get totalTime(): moment.Moment {
         let time = 0;
         this.intervales.forEach(i => {
             if (i.end) {
-                time += i.end.getTime() - i.start.getTime();
+                time += i.end.valueOf() - i.start.valueOf();
             } else {
-                time += new Date().getTime() - i.start.getTime();
+                time += moment().valueOf() - i.start.valueOf();
             }
         });
-        return time;
+        return moment.unix(time);
     }
 
-    checkPoint(commentary: string) {
+    public checkPoint(commentary: string) {
         const last = this.intervales[this.intervales.length - 1];
-        last.end = new Date();
+        last.end = moment();
         last.endComment = commentary;
+        this.startWork();
+    }
+
+    public cancelLast() {
+        this.intervales = this.intervales.slice(0, -1);
     }
 }

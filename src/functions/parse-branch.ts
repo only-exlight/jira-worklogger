@@ -27,8 +27,3 @@ export async function currentBranch(): Promise<string> {
     curBranch = curBranch.trimLeft();
     return curBranch;
 }
-
-export function extractTaskName(branchName: string): string {
-    const parts = branchName.split('/');
-    return parts[1] ? parts[1].toUpperCase() : '';
-}

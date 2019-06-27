@@ -22,3 +22,8 @@ export interface IJiraLogin {
         previousLoginTime: Date | string;
     }
 }
+
+export interface IReport {
+    taskName: string;
+    report: IJiraWorkLog;
+}

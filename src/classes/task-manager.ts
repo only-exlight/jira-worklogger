@@ -33,7 +33,12 @@ export class TaskManager {
     }
 
     public fixateJob(comment: string) {
-        this.currentTask.checkPoint(comment);
+        if (this.currentTask) {
+            this.currentTask.checkPoint(comment);
+        } else {
+            process.stdout.write('Please start task!\n');
+        }
+
     }
 
     public writeAllTasks() {

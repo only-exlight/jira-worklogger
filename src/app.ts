@@ -11,7 +11,9 @@ export async function main() {
     const taskManager = new TaskManager();
     const jiraManager = new JiraManager();
     const app = express();
+
     writeSeparator();
+
     process.stdout.write('Good day for work! \n');
     process.stdout.write(`Welcome to ${APP_NAME} ${VERSION}\n`);
     const branch = await currentBranch();
@@ -22,11 +24,12 @@ export async function main() {
     }
 
     await jiraManager.login();
+
     writeSeparator();
 
     app.use(json());
 
-    app.get('/', (req, res) => {
+    app.get('/', (_, res) => {
         res.send(`Welcome to ${APP_NAME} ${VERSION}\n`);
         res.end();
     });
@@ -49,7 +52,11 @@ export async function main() {
                 taskManager.fixateJob(req.body.info);
                 break;
             }
-            default: process.stdout.write('Error parse message!\n');
+            case E_PROTOKOL_EVENT.pre_commit: {
+                // process.stdin.write(`${JSON.stringify(msg)}\n`);
+                break
+            }
+            default: process.stdout.write(`Error parse message!\n ${JSON.stringify(msg)}\n`);
         }
         res.end();
     });
@@ -63,7 +70,7 @@ export async function main() {
         process.stdout.write('\nWork log today:\n');
         taskManager.writeAllTasks();
         writeSeparator();
-        process.stdout.write(`Hours total: ${taskManager.totalHours.format('HH:mm')}\n`);
+        process.stdout.write(`Hours total: ${taskManager.totalHours.asHours().toFixed(2)}h\n`);
         writeSeparator();
         const reports = taskManager.prepareReport();
         await jiraManager.jiraWorkLogMass(reports);

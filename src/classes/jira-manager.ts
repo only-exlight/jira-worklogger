@@ -38,9 +38,9 @@ export class JiraManager {
 
     public async jiraLogWork(task: string, info: IJiraWorkLog): Promise<boolean> {
         try {
-            await axios.post(`${JIRA_DOMAIN_V2}/${task}/worklog`, info, {
+            /*await axios.post(`${JIRA_DOMAIN_V2}/${task}/worklog`, info, {
                 headers: { Cookie: `${this.session.name}=${this.session.value};` }
-            });
+            });*/
             return true;
         } catch (error) {
             console.log(error);

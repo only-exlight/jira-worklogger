@@ -6,7 +6,8 @@ import axios from 'axios';
 process.stdout.write(`${APP_NAME} COMMIT-MSG \n`);
 
 const COMMIT_MSG_FILE = process.argv[2];
-const COMMIT_MSG = readFileSync(`./${COMMIT_MSG_FILE}`).toString();
+const COMMIT_MSG = readFileSync(`./${COMMIT_MSG_FILE}`).toString().replace('\n', '');
+process.stdout.write(`Your commit message: ${COMMIT_MSG}`);
 
 const MSG: IProtokol = {
     event: E_PROTOKOL_EVENT.commit_msg,

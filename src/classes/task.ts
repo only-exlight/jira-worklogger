@@ -18,16 +18,17 @@ export class Task {
         this.intervales.push({ start: moment() })
     }
 
-    get totalTime(): moment.Moment {
+    get totalTime(): moment.Duration {
         let time = 0;
         this.intervales.forEach(i => {
             if (i.end) {
-                time += i.end.valueOf() - i.start.valueOf();
+                moment.duration;
+                time += i.end.unix() - i.start.unix();
             } else {
-                time += moment().valueOf() - i.start.valueOf();
+                time += moment().unix() - i.start.unix();
             }
         });
-        return moment.unix(time);
+        return moment.duration(time, 's');
     }
 
     public checkPoint(commentary: string) {

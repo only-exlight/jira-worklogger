@@ -4,7 +4,7 @@ export interface IJiraWorkLog {
         type: string;
         value: string;
     },
-    started: Date;
+    started: Date | string;
     timeSpentSeconds: number;
 }
 

@@ -1,4 +1,5 @@
 import * as moment from 'moment';
+import { IReport } from '../interfaces/jira';
 
 export interface ITimeInterval {
     start: moment.Moment;
@@ -40,5 +41,22 @@ export class Task {
 
     public cancelLast() {
         this.intervales = this.intervales.slice(0, -1);
+    }
+
+    public createReport(): IReport {
+        const report: IReport = {
+            taskName: this.name,
+            report: {
+                started: this.intervales[0].start.toString(),
+                comment: '',
+                timeSpentSeconds: this.totalTime.asSeconds(),
+                visibility: {
+                    type: '',
+                    value: ''
+                }
+            }
+        };
+        this.intervales.forEach(i => report.report.comment += `${i.endComment} \n`);
+        return report;
     }
 }

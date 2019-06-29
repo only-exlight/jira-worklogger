@@ -49,10 +49,7 @@ export class TaskManager {
 
     public prepareReport(): IReport[] {
         const reports: IReport[] = [];
-        this.todayTasks.forEach((t => reports.push({
-            taskName: t.name,
-            report: null
-        })));
+        this.todayTasks.forEach(t => reports.push(t.createReport()));
         return reports;
     }
 

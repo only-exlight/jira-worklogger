@@ -3,7 +3,10 @@ rm -rf package;
 echo 'Ok!';
 #
 echo 'Build files...';
-webpack --config webpack.config.js;
+mkdir package;
+npm run compile;
+cp -r dist/* package;
+rm -rf dist;
 echo 'Ok!';
 #
 echo 'Copy: manifest, license, readme...';
@@ -15,8 +18,8 @@ echo 'Ok!';
 #
 echo 'Add run signature to files...';
 cd package;
-echo "#!/usr/bin/env node\n$(cat jwl)" > jwl;
-echo "#!/usr/bin/env node\n$(cat use-jwl)" > use-jwl;
+echo "#!/usr/bin/env node\n$(cat index.js)" > index.js;
+echo "#!/usr/bin/env node\n$(cat utils/use-jwl.js)" > utils/use-jwl.js;
 cd ..;
 echo 'Ok!';
 #

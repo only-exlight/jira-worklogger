@@ -8,10 +8,10 @@ hp.length--;
 let hoooooksPath = hp.join('/');
 
 const commitMsgPath = './.git/hooks/commit-msg'
-const commitMsg = `node ${hoooooksPath}/hoooooks/commit-msg.js $1`;
+const commitMsg = `\nnode ${hoooooksPath}/hoooooks/commit-msg.js $1`;
 
 const postCheckoutPath = './.git/hooks/post-checkout';
-const postCheckout = `node ${hoooooksPath}/hoooooks/post-checkout.ts`;
+const postCheckout = `\nnode ${hoooooksPath}/hoooooks/post-checkout.ts`;
 
 if (existsSync('./.git')) {
     if (existsSync('./.git/hooks')) {
@@ -21,8 +21,8 @@ if (existsSync('./.git')) {
         writeFileSync(commitMsgPath, commitMsg);
         writeFileSync(postCheckoutPath, postCheckout);
     }
-    chmodSync(commitMsgPath, 777);
-    chmodSync(postCheckoutPath, 777);
+    chmodSync(commitMsgPath, 0b111111111);
+    chmodSync(postCheckoutPath, 0b111111111);
 } else {
     process.stdout.write('GIT repository not found!');
 }

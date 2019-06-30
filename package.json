@@ -1,6 +1,6 @@
 {
   "name": "jira-worklogger",
-  "version": "0.0.13",
+  "version": "0.0.15",
   "description": "Auto log time by tasks",
   "main": "jwl.js",
   "license": "MIT",
@@ -21,8 +21,8 @@
     "CLI"
   ],
   "bin": {
-    "jwl": "node jwl",
-    "use-jwl": "node use-jwl"
+    "jwl": "jwl",
+    "use-jwl": "use-jwl"
   },
   "repository": {
     "type": "git",

@@ -1,5 +1,5 @@
 import { APP_NAME, VERSION } from '../const/app-consts';
-import { existsSync, appendFileSync, writeFileSync } from 'fs';
+import { existsSync, appendFileSync, writeFileSync, chmodSync } from 'fs';
 
 process.stdout.write(`Use ${APP_NAME} ${VERSION} for this repository... \n`);
 
@@ -21,6 +21,8 @@ if (existsSync('./.git')) {
         writeFileSync(commitMsgPath, commitMsg);
         writeFileSync(postCheckoutPath, postCheckout);
     }
+    chmodSync(commitMsgPath, 777);
+    chmodSync(postCheckoutPath, 777);
 } else {
     process.stdout.write('GIT repository not found!');
 }

@@ -3,8 +3,9 @@ import { existsSync, appendFileSync, writeFileSync } from 'fs';
 
 process.stdout.write(`Use ${APP_NAME} ${VERSION} for this repository... \n`);
 
-let hoooooksPath = __dirname.split('/');
-hoooooksPath.length--;
+let hp = __dirname.split('/');
+hp.length--;
+let hoooooksPath = hp.join('/');
 
 const commitMsgPath = './.git/hooks/commit-msg'
 const commitMsg = `node ${hoooooksPath}/hoooooks/commit-msg.js $1`;

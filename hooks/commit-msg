@@ -1,1 +1,0 @@
-node .git/hooks/commit-msg.js $1

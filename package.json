@@ -2,21 +2,33 @@
   "name": "jira-auto-log",
   "version": "0.0.13",
   "description": "Auto log time by tasks",
-  "main": "index.js",
+  "main": "jal.js",
+  "license": "MIT",
+  "author": "eXlight",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "ts-node src/index.ts",
-    "commit": "ts-node src/hoooooks/commit.ts",
-    "compile": "tsc",
+    "build": "scripts/build.sh",
     "webpack": "webpack --config webpack.config.js"
   },
   "keywords": [
     "jira",
     "log",
-    "time"
+    "time",
+    "work",
+    "tools",
+    "CLI"
   ],
-  "author": "eXlight",
-  "license": "ISC",
+  "bin": {
+    "jal": "jal",
+    "use-jal": "use-jal"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/only-exlight/jura-timetraker"
+  },
+  "bugs": {
+    "url": "https://github.com/only-exlight/jura-timetraker/issues"
+  },
   "dependencies": {
     "@types/express": "^4.17.0",
     "axios": "^0.19.0",

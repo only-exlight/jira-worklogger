@@ -11,7 +11,7 @@ const commitMsgPath = './.git/hooks/commit-msg'
 const commitMsg = `\nnode ${hoooooksPath}/hoooooks/commit-msg.js $1`;
 
 const postCheckoutPath = './.git/hooks/post-checkout';
-const postCheckout = `\nnode ${hoooooksPath}/hoooooks/post-checkout.ts`;
+const postCheckout = `\nnode ${hoooooksPath}/hoooooks/post-checkout.js`;
 
 if (existsSync('./.git')) {
     if (existsSync('./.git/hooks')) {

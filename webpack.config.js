@@ -5,8 +5,8 @@ module.exports = {
         'pre-commit': './src/hoooooks/pre-commit.ts',
         'commit-msg': './src/hoooooks/commit-msg.ts',
         'post-checkout': './src/hoooooks/post-checkout.ts',
-        'jal': './src/index.ts',
-        'use-jal': './src/utils/use-jal.ts'
+        'jwl': './src/index.ts',
+        'use-jwl': './src/utils/use-jwl.ts'
     },
     module: {
         rules: [{

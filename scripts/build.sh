@@ -1,6 +1,7 @@
 rm -rf package
 webpack --config webpack.config.js
+cp src/final-package.json package
+mv package/final-package.json package/package.json
 cp LICENSE package
-cp package.json package
 cp README.md package
-# npm publish package
+npm publish package

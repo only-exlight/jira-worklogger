@@ -1,0 +1,29 @@
+{
+    "name": "jira-worklogger",
+    "version": "0.0.13",
+    "description": "Auto log time by tasks",
+    "main": "jwl.js",
+    "license": "MIT",
+    "author": "eXlight",
+    "keywords": [
+        "jira",
+        "log",
+        "time",
+        "work",
+        "tools",
+        "time-tracking",
+        "git-hooks",
+        "CLI"
+    ],
+    "bin": {
+        "jwl": "node jwl",
+        "use-jwl": "node use-jwl"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/only-exlight/jura-timetraker"
+    },
+    "bugs": {
+        "url": "https://github.com/only-exlight/jura-timetraker/issues"
+    }
+}

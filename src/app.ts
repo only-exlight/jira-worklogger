@@ -1,4 +1,4 @@
-import { PORT, HOST, APP_NAME, VERSION } from './const/app-consts';
+import { PORT, APP_NAME, VERSION } from './const/app-consts';
 import { currentBranch } from './functions/parse-branch';
 import { E_PROTOKOL_EVENT, IProtokol } from './const/protocol';
 import { writeSeparator } from './functions/exec';

@@ -1,1 +1,0 @@
-process.stdout.write('Use JIRA AUTO LOGGER for repo... \n');

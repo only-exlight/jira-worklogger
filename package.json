@@ -1,8 +1,8 @@
 {
-  "name": "jira-auto-log",
+  "name": "jira-worklogger",
   "version": "0.0.13",
   "description": "Auto log time by tasks",
-  "main": "jal.js",
+  "main": "jwl.js",
   "license": "MIT",
   "author": "eXlight",
   "scripts": {
@@ -16,11 +16,13 @@
     "time",
     "work",
     "tools",
+    "time-tracking",
+    "git-hooks",
     "CLI"
   ],
   "bin": {
-    "jal": "jal",
-    "use-jal": "use-jal"
+    "jwl": "node jwl",
+    "use-jwl": "node use-jwl"
   },
   "repository": {
     "type": "git",
@@ -46,6 +48,7 @@
     "@types/node": "^12.0.10",
     "ts-loader": "^6.0.4",
     "ts-node": "^8.3.0",
+    "tslint": "^5.18.0",
     "typescript": "^3.5.2",
     "webpack": "^4.35.0",
     "webpack-cli": "^3.3.5",

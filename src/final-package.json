@@ -1,6 +1,6 @@
 {
     "name": "jira-worklogger",
-    "version": "0.0.15",
+    "version": "0.0.16",
     "description": "Auto log time by tasks",
     "main": "jwl.js",
     "license": "MIT",

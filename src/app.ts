@@ -23,8 +23,6 @@ export async function main() {
         process.exit(0);
     }
 
-    await jiraManager.login();
-
     writeSeparator();
 
     app.use(json());

@@ -20,6 +20,7 @@ echo 'Add run signature to files...';
 cd package;
 echo "#!/usr/bin/env node\n$(cat index.js)" > index.js;
 echo "#!/usr/bin/env node\n$(cat utils/use-jwl.js)" > utils/use-jwl.js;
+echo "#!/usr/bin/env node\n$(cat utils/jwl-config.js)" > utils/jwl-config.js;
 cd ..;
 echo 'Ok!';
 #

@@ -14,6 +14,7 @@ cp src/final-package.json package;
 mv package/final-package.json package/package.json;
 cp LICENSE package;
 cp README.md package;
+touch package/config.json
 echo 'Ok!';
 #
 echo 'Add run signature to files...';

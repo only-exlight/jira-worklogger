@@ -1,3 +1,4 @@
 /node_modules
 /package
 /dist
+/src/config.json

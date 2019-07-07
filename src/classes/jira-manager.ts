@@ -2,17 +2,19 @@ import { IReport } from '../interfaces/jira';
 import { writeSeparator } from '../functions/exec';
 import { Bar, Presets } from 'cli-progress';
 import { bgBlue } from 'colors';
-import JiraClient from 'jira-client';
+import * as JiraApi from 'jira-client';
 import { ConfigManager } from './config-manager';
+
+const JiraClient: any = JiraApi;
 
 export class JiraManager {
     private configManager = new ConfigManager();
-    private jiraClient: JiraClient
+    private JiraApi: any;
 
     constructor() {
         if (this.configManager.checkConfig()) {
-            const config: JiraClient.JiraApiOptions = this.configManager.readConfig();
-            this.jiraClient = new JiraClient(config);
+            const config: JiraApi.default.JiraApiOptions = this.configManager.readConfig();
+            this.JiraApi = new JiraClient(config);
         } else {
             process.stdout.write('No config! Set config: use command \'jwl-config\'\n');
             process.exit(0);
@@ -25,7 +27,7 @@ export class JiraManager {
         progres.start(reports.length, 0);
         let progressState = 0;
         reports.forEach(async r => {
-            await this.jiraClient.addWorklog(r.taskName, r.report);
+           await this.JiraApi.addWorklog(r.taskName, r.report);
             progressState++;
             progres.update(progressState);
             if (progressState === reports.length) {
@@ -34,5 +36,4 @@ export class JiraManager {
             }
         });
     }
-
 }

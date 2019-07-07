@@ -45,7 +45,6 @@
     "@types/jira-client": "^6.4.4",
     "@types/moment": "^2.13.0",
     "@types/node": "^12.0.10",
-
     "ts-node": "^8.3.0",
     "tslint": "^5.18.0",
     "typescript": "^3.5.2"

@@ -1,6 +1,6 @@
 {
   "name": "jira-worklogger",
-  "version": "0.2.26",
+  "version": "0.2.27",
   "description": "Auto log time by tasks",
   "main": "index.ts",
   "license": "MIT",
@@ -22,10 +22,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/only-exlight/jura-timetraker"
+    "url": "https://github.com/only-exlight/jira-worklogger"
   },
   "bugs": {
-    "url": "https://github.com/only-exlight/jura-timetraker/issues"
+    "url": "https://github.com/only-exlight/jira-worklogger/issues"
   },
   "dependencies": {
     "axios": "^0.19.0",

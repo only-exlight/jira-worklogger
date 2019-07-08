@@ -2,6 +2,8 @@ import { Task } from './task';
 import * as moment from 'moment';
 import { IReport } from '../interfaces/jira';
 
+const LENGTH = 16;
+
 export class TaskManager {
     currentTask: Task;
     todayTasks = new Map<string, Task>();
@@ -22,9 +24,11 @@ export class TaskManager {
         if (!task) {
             task = new Task(taskName);
             this.todayTasks.set(taskName, task);
-            process.stdout.write(`Start task ${task.name}. TIME NOW: ${moment().format('hh:mm')}\n`);
+            const msg = 'START TASK'.padEnd(LENGTH, '-');
+            process.stdout.write(`${msg}-${task.name}-TIME NOW: ${moment().format('hh:mm')}\n`);
         } else {
-            process.stdout.write(`Continue task ${task.name}. TIME NOW: ${moment().format('hh:mm')}\n`);
+            const msg = 'CONTINUE TASK'.padEnd(LENGTH, '-');
+            process.stdout.write(`${msg}-${task.name}-TIME NOW: ${moment().format('hh:mm')}\n`);
         }
         if (this.currentTask) {
             this.currentTask.cancelLast();
@@ -35,7 +39,8 @@ export class TaskManager {
 
     public fixateJob(comment: string) {
         if (this.currentTask) {
-            process.stdout.write(`Fixate job task ${this.currentTask.name}. TIME NOW: ${moment().format('hh:mm')}\n`)
+            const msg = 'FIXATE JOB TASK'.padEnd(LENGTH, '-');
+            process.stdout.write(`${msg}-${this.currentTask.name}-TIME NOW: ${moment().format('hh:mm')}\n`)
             this.currentTask.checkPoint(comment);
         } else {
             process.stdout.write('Please start task!\n');

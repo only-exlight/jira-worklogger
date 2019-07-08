@@ -1,5 +1,4 @@
 import { pExec } from './exec';
-import { BUG_PTRN } from '../const/patterns';
 
 export async function parseBranch(): Promise<string[]> {
     const out = await pExec('git branch');
